@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BATIK NUSANTARA - Ensiklopedia Batik Digital Terlengkap</title>
+    
+    <!-- External Dependencies -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@400;600&family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Internal CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- SCROLL PROGRESS INDICATOR -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- WELCOME SEQUENCE -->
+    <div id="welcome-sequence">
+        <h1 class="welcome-text">WELCOME</h1>
+        <div class="subtitle-text">Ke Dunia Batik Nusantara yang Megah dan Penuh Makna</div>
+        <div class="loading-bar">
+            <div class="loading-progress"></div>
+        </div>
+        <button class="enter-button" id="enterButton">
+            <i class="fas fa-door-open"></i> MASUK KE ENSIKLOPEDIA
+        </button>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main id="main-content" style="display: none;">
+        <!-- HEADER -->
+        <header id="mainHeader">
+            <div class="container header-container">
+                <h1 class="header-title">BATIK NUSANTARA</h1>
+                <p class="header-subtitle">Mengenang Kembali Sejarah Batik Indonesia Dengan Menelusuri Jejak Budaya Yang Telah Hidup Lamanya Dan Menyatu Disetiap Goresan Malam Dengan Motif Yang Sangat Bermakna.</p>
+                
+                <nav class="main-nav">
+                    <a href="#beranda" class="nav-link active" data-page="beranda"><i class="fas fa-home"></i> BERANDA</a>
+                    <a href="#sejarah" class="nav-link" data-page="sejarah"><i class="fas fa-history"></i> SEJARAH</a>
+                    <a href="#pembuatan" class="nav-link" data-page="pembuatan"><i class="fas fa-paint-brush"></i> PEMBUATAN</a>
+                    <a href="#modul" class="nav-link" data-page="modul"><i class="fas fa-graduation-cap"></i> MODUL EDUKASI</a>
+                    <a href="#curator" class="nav-link nav-curator-hub" data-page="curator"><i class="fas fa-certificate"></i> Curator Hub</a>
+                </nav>
+            </div>
+        </header>
+
+        <!-- BERANDA SECTION -->
+        <section id="beranda" class="page-content active">
+            <div class="container">
+                <!-- HERO -->
+                <div class="hero">
+                    <h2>Selamat Datang di Ensiklopedia Batik Nusantara</h2>
+                    <p>Temukan keindahan, filosofi, dan sejarah di balik setiap motif batik Indonesia. Jelajahi koleksi terlengkap dari Sabang sampai Merauke.</p>
+                    <button class="cta-button" onclick="navigateTo('sejarah')">Mulai Jelajahi <i class="fas fa-arrow-right"></i></button>
+                </div>
+
+                <!-- FITUR UTAMA -->
+                <h2 class="section-title">Jelajahi Dunia Batik</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-history"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h3>Sejarah Batik</h3>
+                            <p>Pelajari perjalanan panjang batik dari masa kerajaan hingga diakui UNESCO sebagai Warisan Dunia.</p>
+                            <span class="feature-link" onclick="navigateTo('sejarah')">Pelajari Sejarah <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h3>Proses Pembuatan</h3>
+                            <p>Pahami teknik tradisional membatik mulai dari nglowong, nembok, hingga nglorod.</p>
+                            <span class="feature-link" onclick="navigateTo('pembuatan')">Lihat Proses <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h3>Modul Edukasi</h3>
+                            <p>Akses materi pembelajaran lengkap untuk memahami filosofi dan teknik batik.</p>
+                            <span class="feature-link" onclick="navigateTo('modul')">Mulai Belajar <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GALERI BATIK -->
+                <h2 class="section-title">Koleksi Batik Nusantara</h2>
+                
+                <div class="search-section">
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="searchInput" placeholder="Cari nama motif, asal daerah, atau filosofi...">
+                    </div>
+                    
+                    <div class="filter-panel">
+                        <button class="filter-toggle" id="filterToggle">
+                            <i class="fas fa-filter"></i> <span id="filterText">Tampilkan Filter Lanjutan</span>
+                        </button>
+                        
+                        <div id="advanced-filters" class="filters-hidden">
+                            <!-- Filter akan di-generate oleh JavaScript -->
+                        </div>
+                    </div>
+                </div>
+
+                <div id="batik-gallery">
+                    <!-- Batik cards akan di-generate oleh JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- SEJARAH SECTION -->
+        <section id="sejarah" class="page-content">
+            <div class="container">
+                <h2 class="section-title">Sejarah Batik Indonesia</h2>
+                
+                <!-- QUOTE PEMBUKA -->
+                <div class="quote-box">
+                    <div class="quote-text">"Batik adalah jati diri bangsa Indonesia, simbol peradaban yang hidup dan terus berkembang, menyimpan filosofi dalam setiap goresannya."</div>
+                    <div class="quote-author">- UNESCO, dalam penetapan Batik sebagai Warisan Kemanusiaan 2009</div>
+                </div>
+                
+                <!-- TIMELINE -->
+                <div class="timeline" id="historyTimeline">
+                    <!-- ABAD KE-5 M -->
+                    <div class="timeline-item">
+                        <div class="timeline-indicator">
+                            <i class="fas fa-scroll"></i>
+                        </div>
+                        <div class="timeline-connector"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-year">Abad ke-5 M</div>
+                            <p><strong>Masa Prasejarah Batik Nusantara</strong></p>
+                            <p>Bukti arkeologis menunjukkan teknik serupa batik telah ada di Nusantara sejak abad ke-5 Masehi. Kain dengan teknik resist-dyeing (celup rintang) ditemukan di situs arkeologi Toraja, Sulawesi Selatan, yang menunjukkan bahwa nenek moyang bangsa Indonesia telah menguasai teknik pewarnaan kain yang kompleks.</p>
+                            
+                            <div class="era-highlight">
+                                <strong>Fakta Penting:</strong> Teknik serupa juga ditemukan di Mesir kuno (abad ke-4 SM) dan India (abad ke-1 M), namun batik Indonesia memiliki karakteristik unik dengan penggunaan malam (lilin) sebagai perintang warna.
+                            </div>
+                            
+                            <div class="timeline-features">
+                                <span class="timeline-feature"><i class="fas fa-map-marker-alt"></i> Toraja, Sulawesi</span>
+                                <span class="timeline-feature"><i class="fas fa-archaeology"></i> Bukti Arkeologis</span>
+                                <span class="timeline-feature"><i class="fas fa-history"></i> Teknik Resist-Dyeing</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- ABAD KE-13 -->
+                    <div class="timeline-item">
+                        <div class="timeline-indicator">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <div class="timeline-connector"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-year">Abad ke-13</div>
+                            <p><strong>Perkembangan di Kerajaan-Kerajaan Jawa</strong></p>
+                            <p>Batik mulai berkembang pesat di kerajaan-kerajaan Jawa seperti Majapahit (1293-1500 M). Pada masa ini, motif-motif dasar batik seperti <em>Parang</em>, <em>Kawung</em>, dan <em>Ceplok</em> mulai diciptakan dan memiliki makna filosofis yang dalam terkait dengan kosmologi Jawa.</p>
+                            
+                            <p>Pada periode ini, batik mulai dipengaruhi oleh agama Hindu dan Buddha yang berkembang di Nusantara. Motif-motif mulai memiliki makna spiritual dan digunakan dalam upacara-upacara keagamaan.</p>
+                            
+                            <div class="timeline-features">
+                                <span class="timeline-feature"><i class="fas fa-empire"></i> Kerajaan Majapahit</span>
+                                <span class="timeline-feature"><i class="fas fa-pray"></i> Pengaruh Hindu-Buddha</span>
+                                <span class="timeline-feature"><i class="fas fa-star"></i> Motif Dasar Diciptakan</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- ABAD KE-17 -->
+                    <div class="timeline-item">
+                        <div class="timeline-indicator">
+                            <i class="fas fa-archway"></i>
+                        </div>
+                        <div class="timeline-connector"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-year">Abad ke-17</div>
+                            <p><strong>Zaman Keemasan Batik Keraton</strong></p>
+                            <p>Abad ke-17 menandai zaman keemasan batik di Keraton Yogyakarta dan Surakarta (Solo). Pada masa ini, sistem <em>larangan</em> mulai diterapkan - motif tertentu hanya boleh dikenakan oleh keluarga kerajaan dan bangsawan tinggi.</p>
+                            
+                            <div class="era-highlight">
+                                <strong>Sistem Larangan Keraton:</strong> Motif <em>Parang Barong</em>, <em>Parang Rusak</em>, <em>Udan Liris</em>, dan <em>Kawung</em> dilarang dikenakan rakyat biasa. Pelanggaran bisa dihukum berat. Sistem ini bertahan hingga awal abad ke-20.
+                            </div>
+                            
+                            <p>Keraton menjadi pusat inovasi batik dengan pengembangan teknik yang semakin halus dan complex. Batik menjadi penanda status sosial dan alat legitimasi kekuasaan.</p>
+                            
+                            <div class="timeline-features">
+                                <span class="timeline-feature"><i class="fas fa-gem"></i> Keraton Yogyakarta & Solo</span>
+                                <span class="timeline-feature"><i class="fas fa-ban"></i> Sistem Larangan</span>
+                                <span class="timeline-feature"><i class="fas fa-crown"></i> Simbol Status Sosial</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- ABAD KE-19 -->
+                    <div class="timeline-item">
+                        <div class="timeline-indicator">
+                            <i class="fas fa-ship"></i>
+                        </div>
+                        <div class="timeline-connector"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-year">Abad ke-19</div>
+                            <p><strong>Batik Pesisir dan Akulturasi Budaya</strong></p>
+                            <p>Batik pesisir berkembang pesat di Pekalongan, Cirebon, Lasem, dan daerah pesisir utara Jawa. Batik di daerah ini menyerap pengaruh budaya asing seperti:</p>
+                            
+                            <ul style="margin-left: 20px; margin-bottom: 15px;">
+                                <li><strong>Tionghoa:</strong> Motif burung Phoenix, naga, awan (Mega Mendung)</li>
+                                <li><strong>Arab:</strong> Motif geometris, kaligrafi, warna-warna cerah</li>
+                                <li><strong>Eropa:</strong> Motif bunga tulip, bouquet, warna pastel</li>
+                            </ul>
+                            
+                            <p>Pada abad ini, teknik <em>batik cap</em> mulai diperkenalkan, memungkinkan produksi massal dan menurunkan harga batik sehingga lebih terjangkau masyarakat umum.</p>
+                            
+                            <div class="timeline-features">
+                                <span class="timeline-feature"><i class="fas fa-water"></i> Batik Pesisir</span>
+                                <span class="timeline-feature"><i class="fas fa-globe-asia"></i> Akulturasi Budaya</span>
+                                <span class="timeline-feature"><i class="fas fa-stamp"></i> Teknik Cap Diperkenalkan</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 1945 -->
+                    <div class="timeline-item">
+                        <div class="timeline-indicator">
+                            <i class="fas fa-flag"></i>
+                        </div>
+                        <div class="timeline-connector"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-year">1945</div>
+                            <p><strong>Batik sebagai Pakaian Nasional</strong></p>
+                            <p>Setelah kemerdekaan Indonesia, Presiden Soekarno menetapkan batik sebagai pakaian nasional Indonesia. Batik menjadi simbol identitas bangsa yang membedakan Indonesia dari negara lain.</p>
+                            
+                            <div class="era-highlight">
+                                <strong>Soekarno berujar:</strong> "Batik adalah manifestasi dari ketelitian, kesabaran, dan kehalusan rasa bangsa Indonesia. Ia bukan sekadar kain, tetapi catatan peradaban kita."
+                            </div>
+                            
+                            <p>Pemerintah mulai aktif mempromosikan batik di kancah internasional dan mendorong industrialisasi batik untuk meningkatkan perekonomian rakyat.</p>
+                            
+                            <div class="timeline-features">
+                                <span class="timeline-feature"><i class="fas fa-flag"></i> Simbol Identitas Nasional</span>
+                                <span class="timeline-feature"><i class="fas fa-user-tie"></i> Soekarno</span>
+                                <span class="timeline-feature"><i class="fas fa-industry"></i> Industrialisasi Batik</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 2009 -->
+                    <div class="timeline-item">
+                        <div class="timeline-indicator">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <div class="timeline-connector"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-year">2009</div>
+                            <p><strong>Pengakuan UNESCO sebagai Warisan Dunia</strong></p>
+                            <p>Tanggal 2 Oktober 2009, UNESCO menetapkan batik Indonesia sebagai <em>Warisan Kemanusiaan untuk Budaya Lisan dan Nonbendawi</em> (Masterpieces of the Oral and Intangible Heritage of Humanity).</p>
+                            
+                            <p>Penetapan ini memiliki makna penting:</p>
+                            <ol style="margin-left: 20px; margin-bottom: 15px;">
+                                <li>Pengakuan internasional atas nilai budaya batik</li>
+                                <li>Komitmen dunia untuk melestarikan batik</li>
+                                <li>Peningkatan kebanggaan nasional terhadap batik</li>
+                                <li>Dorongan untuk pelestarian dan pengembangan batik</li>
+                            </ol>
+                            
+                            <p>Sejak itu, 2 Oktober diperingati sebagai Hari Batik Nasional di Indonesia.</p>
+                            
+                            <div class="timeline-features">
+                                <span class="timeline-feature"><i class="fas fa-award"></i> Warisan UNESCO</span>
+                                <span class="timeline-feature"><i class="fas fa-calendar-day"></i> 2 Oktober</span>
+                                <span class="timeline-feature"><i class="fas fa-hands-helping"></i> Komitmen Pelestarian</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ERA PERKEMBANGAN BATIK -->
+                <h2 class="section-title" style="margin-top: 80px;">Era Perkembangan Batik</h2>
+                
+                <!-- BATIK KERATON -->
+                <div class="era-section">
+                    <h3 class="era-title"><i class="fas fa-crown"></i> Batik Keraton (17-19 M)</h3>
+                    <div class="era-content">
+                        <p>Batik Keraton berkembang di lingkungan keraton Jawa (Yogyakarta dan Surakarta) dengan karakteristik:</p>
+                        
+                        <div class="era-highlight">
+                            <strong>Ciri Khas:</strong>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li>Warna dominan soga (coklat), hitam, putih, biru indigo</li>
+                                <li>Motif simbolis dan filosofis mendalam</li>
+                                <li>Teknik tulis dengan ketelitian tinggi</li>
+                                <li>Sistem larangan motif untuk kalangan tertentu</li>
+                            </ul>
+                        </div>
+                        
+                        <p><strong>Filosofi:</strong> Setiap motif mengandung ajaran hidup, nilai-nilai moral, dan pandangan kosmologi Jawa. Misalnya, motif <em>Parang</em> melambangkan kesinambungan, <em>Kawung</em> melambangkan kesucian.</p>
+                        
+                        <p><strong>Fungsi:</strong> Selain sebagai pakaian, batik keraton digunakan dalam upacara adat, penobatan, dan ritual kerajaan sebagai media komunikasi simbolis.</p>
+                    </div>
+                </div>
+                
+                <!-- BATIK PESISIR -->
+                <div class="era-section">
+                    <h3 class="era-title"><i class="fas fa-water"></i> Batik Pesisir (19-20 M)</h3>
+                    <div class="era-content">
+                        <p>Batik Pesisir berkembang di daerah pesisir utara Jawa dengan pengaruh budaya asing yang kuat:</p>
+                        
+                        <div class="era-highlight">
+                            <strong>Pusat Pengembangan:</strong>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>Pekalongan:</strong> Pengaruh Tionghoa dan Eropa</li>
+                                <li><strong>Cirebon:</strong> Pengaruh Tionghoa dan Islam</li>
+                                <li><strong>Lasem:</strong> Pengaruh Tionghoa yang kuat</li>
+                                <li><strong>Madura:</strong> Warna cerah dan motif berani</li>
+                            </ul>
+                        </div>
+                        
+                        <p><strong>Karakteristik:</strong> Warna lebih cerah dan beragam (merah, hijau, kuning emas), motif lebih bebas dan naturalis, teknik kombinasi tulis dan cap untuk produksi massal.</p>
+                        
+                        <p><strong>Fungsi Ekonomi:</strong> Batik pesisir menjadi komoditas dagang yang penting, diekspor ke berbagai negara, dan menjadi sumber ekonomi bagi masyarakat pesisir.</p>
+                    </div>
+                </div>
+                
+                <!-- BATIK KONTEMPORER -->
+                <div class="era-section">
+                    <h3 class="era-title"><i class="fas fa-palette"></i> Batik Kontemporer (Abad 21)</h3>
+                    <div class="era-content">
+                        <p>Batik Kontemporer menandai perkembangan batik di era modern dengan inovasi dan adaptasi:</p>
+                        
+                        <div class="era-highlight">
+                            <strong>Inovasi Modern:</strong>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li>Motif abstrak dan modern</li>
+                                <li>Penggunaan warna sintetis yang lebih cerah</li>
+                                <li>Aplikasi pada berbagai produk (fashion, interior, aksesori)</li>
+                                <li>Kolaborasi dengan desainer internasional</li>
+                            </ul>
+                        </div>
+                        
+                        <p><strong>Perkembangan Regional:</strong> Batik berkembang di seluruh Indonesia dengan ciri khas masing-masing daerah:
+                            <br>- Batik Bali: Motif dewa-dewi dan alam
+                            <br>- Batik Jambi: Motif flora fauna khas Sumatera
+                            <br>- Batik Papua: Motif cendrawasih dan suku
+                        </p>
+                        
+                        <p><strong>Fungsi Kontemporer:</strong> Selain sebagai pakaian tradisional, batik menjadi ekspresi seni, identitas budaya, dan produk fashion yang kompetitif di pasar global.</p>
+                    </div>
+                </div>
+                
+                <!-- PENUTUP SEJARAH -->
+                <div class="quote-box" style="background: linear-gradient(135deg, var(--color-emas), var(--color-emas-cerah));">
+                    <div class="quote-text">"Sejarah batik adalah cerminan perjalanan bangsa Indonesia - dari masa kerajaan, kolonial, kemerdekaan, hingga globalisasi. Setiap era meninggalkan jejaknya pada selembar kain batik."</div>
+                    <div class="quote-author">- Dr. H. Amri Yahya, Maestro Batik Indonesia</div>
+                    
+                    <a href="https://youtu.be/HbIRqFuSEKk?si=p1rNp3qfW22XqdWe" target="_blank" class="museum-link">
+                        <i class="fas fa-university"></i> Jelajahi Museum Batik Indonesia
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- PEMBUATAN SECTION -->
+        <section id="pembuatan" class="page-content">
+            <div class="container">
+                <h2 class="section-title">Proses Pembuatan Batik</h2>
+                
+                <div class="proses-steps">
+                    <div class="proses-step">
+                        <div class="step-number">1</div>
+                        <h3 class="step-title">Nglowong</h3>
+                        <p>Membuat pola di atas kain dengan pensil atau canting tulis</p>
+                    </div>
+                    <div class="proses-step">
+                        <div class="step-number">2</div>
+                        <h3 class="step-title">Nembok</h3>
+                        <p>Menutup bagian yang tidak ingin diwarnai dengan malam</p>
+                    </div>
+                    <div class="proses-step">
+                        <div class="step-number">3</div>
+                        <h3 class="step-title">Medel</h3>
+                        <p>Pencelupan kain ke dalam larutan pewarna pertama</p>
+                    </div>
+                    <div class="proses-step">
+                        <div class="step-number">4</div>
+                        <h3 class="step-title">Ngerok & Mbironi</h3>
+                        <p>Menghilangkan malam dan menutup bagian lain untuk pewarnaan berikutnya</p>
+                    </div>
+                    <div class="proses-step">
+                        <div class="step-number">5</div>
+                        <h3 class="step-title">Nyoga</h3>
+                        <p>Pewarnaan dengan warna soga (coklat) tradisional</p>
+                    </div>
+                    <div class="proses-step">
+                        <div class="step-number">6</div>
+                        <h3 class="step-title">Nglorod</h3>
+                        <p>Melorod/menghilangkan malam dengan air mendidih</p>
+                    </div>
+                </div>
+
+                <!-- ALAT DAN BAHAN -->
+                <h2 class="section-title" style="margin-top: 80px;">Alat dan Bahan Membatik</h2>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon" style="background: linear-gradient(135deg, var(--color-pembuatan), #27ae60);">
+                            <i class="fas fa-pen-nib"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h3>Canting</h3>
+                            <p>Alat utama untuk menulis malam dengan ujung tembaga bermacam ukuran</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon" style="background: linear-gradient(135deg, var(--color-pembuatan), #27ae60);">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h3>Malam</h3>
+                            <p>Lilin khusus batik yang tahan panas dan mudah dibersihkan</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon" style="background: linear-gradient(135deg, var(--color-pembuatan), #27ae60);">
+                            <i class="fas fa-tshirt"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h3>Kain Mori</h3>
+                            <p>Kain katun putih berkualitas tinggi sebagai media batik</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MODUL EDUKASI SECTION -->
+        <section id="modul" class="page-content">
+            <div class="container">
+                <h2 class="section-title">Modul Edukasi Batik</h2>
+                
+                <div class="modul-grid">
+                    <div class="modul-card">
+                        <div class="modul-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <div class="modul-content">
+                            <h4>Dasar-dasar Batik</h4>
+                            <p>Pelajari konsep dasar, sejarah singkat, dan pentingnya batik sebagai warisan budaya Indonesia.</p>
+                            <button class="btn-detail-emas modul-btn" style="margin-top: 15px;" data-modul="dasar">Mulai Belajar</button>
+                        </div>
+                    </div>
+                    
+                    <div class="modul-card">
+                        <div class="modul-icon">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <div class="modul-content">
+                            <h4>Teknik Membatik</h4>
+                            <p>Video tutorial dan panduan langkah demi langkah teknik batik tulis dan cap.</p>
+                            <button class="btn-detail-emas modul-btn" style="margin-top: 15px;" data-modul="teknik">Lihat Tutorial</button>
+                        </div>
+                    </div>
+                    
+                    <div class="modul-card">
+                        <div class="modul-icon">
+                            <i class="fas fa-map-marked-alt"></i>
+                        </div>
+                        <div class="modul-content">
+                            <h4>Peta Batik Nusantara</h4>
+                            <p>Jelajahi pusat-pusat batik di Indonesia dengan peta interaktif.</p>
+                            <button class="btn-detail-emas modul-btn" style="margin-top: 15px;" data-modul="peta">Lihat Peta</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- QUIZ SECTION -->
+                <div class="curator-section" style="margin-top: 60px; border-color: var(--color-modul);">
+                    <h2>Uji Pengetahuan Anda</h2>
+                    <p style="font-size: 1.1rem; max-width: 700px; margin: 0 auto 30px; line-height: 1.6;">Ikuti kuis interaktif untuk menguji pengetahuan Anda tentang sejarah, teknik, dan filosofi batik Indonesia. Dapatkan sertifikat setelah menyelesaikan semua level.</p>
+                    <button class="cta-button" id="quizButton">Mulai Kuis Sekarang</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- CURATOR HUB SECTION -->
+        <section id="curator" class="page-content">
+            <div class="container">
+                <div class="curator-section">
+                    <h2>Curator Hub: Validasi dan Sertifikasi</h2>
+                    <p style="font-size: 1.1rem; max-width: 700px; margin: 0 auto 30px; line-height: 1.6;">Fitur eksklusif yang menghubungkan Anda dengan para ahli batik untuk memastikan otentisitas dan keaslian karya batik. Setiap data diverifikasi dengan sistem rujukan ilmiah.</p>
+                    
+                    <div class="curator-form">
+                        <div class="form-group">
+                            <label for="namaPemohon"><i class="fas fa-user"></i> Nama Pemohon *</label>
+                            <input type="text" id="namaPemohon" placeholder="Masukkan nama lengkap">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="emailPemohon"><i class="fas fa-envelope"></i> Email *</label>
+                            <input type="email" id="emailPemohon" placeholder="Masukkan alamat email">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="namaMotif"><i class="fas fa-palette"></i> Nama Motif Batik *</label>
+                            <input type="text" id="namaMotif" placeholder="Contoh: Parang Rusak Barong">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="deskripsiMotif"><i class="fas fa-edit"></i> Deskripsi dan Filosofi *</label>
+                            <textarea id="deskripsiMotif" rows="4" placeholder="Jelaskan motif batik dan filosofinya"></textarea>
+                        </div>
+                        
+                        <button class="cta-button" id="submitCurator" style="width: 100%;">
+                            <i class="fas fa-paper-plane"></i> Ajukan Validasi
+                        </button>
+                        
+                        <p style="text-align: center; margin-top: 20px; color: #666; font-size: 0.9rem;">
+                            * Setiap pengajuan akan diproses dalam 7-14 hari kerja oleh tim kurator kami.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BACK TO TOP BUTTON -->
+        <div id="backToTop">
+            <i class="fas fa-chevron-up"></i>
+        </div>
+
+        <!-- MODAL DETAIL BATIK -->
+        <div id="batikDetailModal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" id="closeModalBtn">&times;</span>
+                <h3 id="modalBatikNama"></h3>
+                <p><strong><i class="fas fa-map-marker-alt"></i> Asal Daerah:</strong> <span id="modalAsalDaerah"></span></p>
+                <p><strong><i class="fas fa-tools"></i> Teknik:</strong> <span id="modalTeknik"></span></p>
+                <p><strong><i class="fas fa-user-tie"></i> Seniman/Pembuat:</strong> <span id="modalSeniman"></span></p>
+                <p><strong><i class="fas fa-brain"></i> Filosofi Spesifik:</strong> <span id="modalFilosofi"></span></p>
+                <p><strong><i class="fas fa-history"></i> Sejarah & Sumber Data:</strong> <span id="modalSejarah"></span></p>
+                <p><strong><i class="fas fa-ban"></i> Larangan Adat:</strong> <span id="modalLarangan"></span></p>
+                <img id="modalBatikImage" style="width:100%; height: auto; margin-top: 20px; border-radius: 8px; border: 1px solid #eee; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <footer>
+            <div class="footer-content">
+                <div class="footer-logo">BATIK NUSANTARA</div>
+                <p class="footer-subtitle">Ensiklopedia Digital Batik Indonesia yang menyajikan informasi terlengkap tentang warisan budaya batik dari seluruh Nusantara.</p>
+                
+                <div class="footer-links">
+                    <a class="nav-link" data-page="beranda"><i class="fas fa-home"></i> BERANDA</a>
+                    <a class="nav-link" data-page="sejarah"><i class="fas fa-history"></i> SEJARAH</a>
+                    <a class="nav-link" data-page="pembuatan"><i class="fas fa-paint-brush"></i> PEMBUATAN</a>
+                    <a class="nav-link" data-page="modul"><i class="fas fa-graduation-cap"></i> MODUL EDUKASI</a>
+                    <a class="nav-link" data-page="curator"><i class="fas fa-certificate"></i> CURATOR HUB</a>
+                </div>
+                
+                <div class="social-icons">
+                    <div class="social-icon" data-platform="tiktok">
+                        <i class="fab fa-tiktok"></i>
+                        <div class="social-tooltip">@WarisanBatikNusantara</div>
+                    </div>
+                    <div class="social-icon" data-platform="facebook">
+                        <i class="fab fa-facebook-f"></i>
+                        <div class="social-tooltip">JelajahBatikNusantara</div>
+                    </div>
+                    <div class="social-icon" data-platform="instagram">
+                        <i class="fab fa-instagram"></i>
+                        <div class="social-tooltip">@BATIKNUSANTARA</div>
+                    </div>
+                    <div class="social-icon" data-platform="twitter">
+                        <i class="fab fa-twitter"></i>
+                        <div class="social-tooltip">@BatikNoesantara</div>
+                    </div>
+                    <div class="social-icon" data-platform="youtube">
+                        <i class="fab fa-youtube"></i>
+                        <div class="social-tooltip">BoedayaBatikNoesantara</div>
+                    </div>
+                </div>
+                
+                <p class="copyright">
+                    &copy; 2023 BATIK NUSANTARA - Ensiklopedia Batik Digital Terlengkap.<br>
+                    Data dikurasi oleh ahli wastra Indonesia. Semua hak dilindungi.<br>
+                    Website ini dikembangkan untuk pelestarian budaya Indonesia.
+                </p>
+            </div>
+        </footer>
+    </main>
+
+    <!-- External JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
